@@ -85,7 +85,7 @@ module.exports = function (app) {
 		client.connect()
 
 		//client.query('SELECT $1::text as message', ['Hello world!'], (err, resp) => {
-		client.query('select m."titulo",h."horaInicio",h."horaFin",a."aula", d."dia" from "Materia" m,"Horario" h, "Dia" d , "Aula" a WHERE m."idMateria" = h."idMateria" and d."idDia" = h."idDia" and a."idAula" = h."idAula"',
+		client.query('select a."idAula",d."idDia", m."titulo",h."horaInicio",h."horaFin",a."aula", d."dia" from "Materia" m,"Horario" h, "Dia" d , "Aula" a WHERE m."idMateria" = h."idMateria" and d."idDia" = h."idDia" and a."idAula" = h."idAula"',
 		 (err, resp) => {
 			console.log(err ? err.stack : "ok!") // Hello World!
 			console.log(resp.rows);

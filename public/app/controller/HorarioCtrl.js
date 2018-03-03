@@ -12,7 +12,42 @@ app.controller("HorarioCtrl", function ($scope, $rootScope, $location, HorarioSe
         idAula: null
     };
 
+
+
+    $scope.validarHorario = function () {
+        var horaAuxIni;
+        var horaAuxFin;
+
+        var idDia = $scope.horario.idDia;
+
+        var horaIniNueva = parseInt($scope.horario.horaInicio.replace(":", ""));
+        var horaFinNueva = parseInt($scope.horario.horaFin.replace(":", ""));
+
+        if (horaIniNueva == horaFinNueva) {
+            alert("No puede ser iguales la hora inicio y fin ");
+            return false;
+        }
+
+        for (horario of $scope.listaHorarios) {
+            if (horario.idDia == idDia && horario.idAula == $scope.horario.idAula) {
+                horaAuxIni = parseInt(horario.horaInicio.replace(":", ""));
+                horaAuxFin = parseInt(horario.horaFin.replace(":", ""));
+
+                if (horaIniNueva < horaAuxFin || horaFinNueva < horaAuxIni) {
+                    alert("No puede haber 2 materias en el mismo horario y aula ");
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     $scope.guardar = function () {
+
+        if (!$scope.validarHorario()) {
+            return;
+        }
+
         HorarioService.guardar($scope.horario, function (data, status, headers, config) {
             $scope.listar();
         });
