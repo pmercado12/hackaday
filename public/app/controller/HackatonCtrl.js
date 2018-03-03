@@ -8,7 +8,7 @@ app.controller("HackatonCtrl", function ($scope, $rootScope, $location) {
         $scope.app = "Hackaton";        
         $scope.listaPasos = [{nro:1,nombre:"docentes",descripcion:"Docentes"},
                             {nro:2,nombre:"BenDatosDireccion",descripcion:"Datos Dirección"},
-                            {nro:3,nombre:"BenDatosRepresentantes",descripcion:"Datos Representantes"},
+                            {nro:3,nombre:"materias",descripcion:"Materias"},
                             {nro:4,nombre:"BenDatosHabilitados",descripcion:"Datos Habilitados"},
                             {nro:5,nombre:"BenDatosCuentas",descripcion:"Datos Cuentas Bancarias"}];
         //$location.path($scope.pagina);

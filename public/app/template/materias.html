@@ -1,0 +1,42 @@
+<div class="col-lg-12">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Sigla</th>
+                <th>T&iacute;tulo</th>
+                <th>Docente</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="materiaL in listaMaterias">
+                <td></td>
+                <td>{{materiaL.sigla}}</td>
+                <td>{{materiaL.titulo}}</td>
+                <td>{{materiaL.nombres + '' + materiaL.paterno + '' + materiaL.materno}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-lg-4">
+    <form>
+        <div class="form-group">
+            <label for="inputPaterno">Sigla</label>
+            <input type="text" class="form-control" id="inputPaterno" placeholder="Paterno" ng-model="materia.sigla">
+        </div>
+
+        <div class="form-group">
+            <label for="inputMaterno">T&iacute;tulo</label>
+            <input type="text" class="form-control" id="inputMaterno" placeholder="Materno" ng-model="materia.titulo">
+        </div>
+
+        <div class="form-group">
+            <label for="inputNroDocumento">Docente:</label>
+            <select name="banco" id="repeatSelect" ng-model="materia.idDocente">
+                <option ng-repeat="docente in listaDocentes" value='{{docente.idDocente}}'>{{docente.nombres + ' ' + docente.paterno + ' ' + docente.materno}}</option>
+            </select>
+        </div>
+
+        <button type="button" class="btn btn-primary" ng-click="guardar()">Guardar</button>
+    </form>
+</div>

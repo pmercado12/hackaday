@@ -8,6 +8,11 @@ app.config(function($routeProvider, $httpProvider) {
             controller: "DocenteCtrl",
             templateUrl: "app/template/docentes.html"
         })
+        .when("/materias", {
+            controller: "MateriaCtrl",
+            templateUrl: "app/template/materias.html"
+        })
+        
                 
         ;
         
