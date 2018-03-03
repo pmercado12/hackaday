@@ -1,0 +1,87 @@
+<!DOCTYPE>
+<html ng-app="Hackaton">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/common/css/bootstrap/bootstrap.min.css" rel="stylesheet" />        
+        <title>Sistema de compras</title>
+    </head>
+    <body ng-controller="HackatonCtrl" class="has-canvas fondo-sistema">
+        
+        
+        <div class="row container-fluid" >    
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="panel panel-default">
+                    <!--<div class="container-fluid">
+                        <label class="text-color-azul"><span class="glyphicon glyphicon-indent-left"></span>&nbsp;&nbsp;&nbsp;RELACI&Oacute;N DE CLASIFICADORES</label>
+                    </div>-->
+                    <uib-tabset vertical="true" type="pills">
+                        <uib-tab class="cla-border-bottom" ng-repeat="paso in listaPasos" heading="{{paso.descripcion}}" select="cambiarPaso(paso)"></uib-tab>
+                    </uib-tabset>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 perfilUsuario">
+                <!--<div class="panel panel-default" ng-if="tabPosicion != 1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Identificaci&oacute;n del Beneficiario</h3>
+                    </div>
+                    <div class="panel-body row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="row form-group">
+                                <label class="col-lg-1 col-md-2 col-sm-3 col-xs-12 control-label">Raz&oacute;n Social:</label>
+                                <div class="col-lg-11 col-md-10 col-sm-9 col-xs-12">
+                                    <input class="form-control input-sm" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-12 col-xs-12">
+                            <div class="row form-group">
+                                <label class="col-lg-3 col-md-2 col-sm-3 col-xs-12 control-label">Tipo de Identificaci&oacute;n:</label>
+                                <div class="col-lg-9 col-md-10 col-sm-9 col-xs-12">
+                                    <select class="form-control input-sm">
+                                        <option>1</option>
+                                        <option>2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-12 col-xs-12">
+                            <div class="row form-group">
+                                <label class="col-lg-3 col-md-2 col-sm-3 col-xs-12 control-label">Documento:</label>
+                                <div class="col-lg-9 col-md-10 col-sm-9 col-xs-12">
+                                    <input class="form-control input-sm" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-12 col-xs-12">
+                            <div class="row form-group">
+                                <label class="col-lg-2 col-md-2 col-sm-3 col-xs-12 control-label">Expedido:</label>
+                                <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
+                                    <input class="form-control input-sm" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <div ng-view></div>
+            </div>
+        </div>
+        
+        <script src="common/js/angular/angular1.3.15.min.js"></script>
+        <script src="common/js/angular/angular-route.min.js"></script>
+        <script src="common/js/angular/angular-resource.min.js"></script>
+        <script src="common/js/angular/ui-bootstrap-tpls-0.14.2.min.js"></script>
+    
+		<script src="app/HackatonApp.js"></script>
+		
+		
+		<script src="app/service/DocenteService.js"></script>
+		<script src="app/controller/HackatonCtrl.js"></script>
+		<script src="app/controller/InicioCtrl.js"></script>
+		<script src="app/controller/DocenteCtrl.js"></script>
+        
+        <script src="app/HackatonConfig.js"></script>
+
+
+    </body>
+</html>
