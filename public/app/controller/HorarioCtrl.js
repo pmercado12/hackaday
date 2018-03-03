@@ -21,7 +21,7 @@ app.controller("HorarioCtrl", function ($scope, $rootScope, $location, HorarioSe
         var idDia = $scope.horario.idDia;
 
         var horaIniNueva = parseInt($scope.horario.horaInicio.replace(":", ""));
-        var horaFinNueva = parseInt($scope.horario.horaFin.replace(":", ""));
+        var horaFinNueva = parseInt($scope.horario.horaFin.replace(":", "")) + 1;
 
         if (horaIniNueva == horaFinNueva) {
             alert("No puede ser iguales la hora inicio y fin ");
@@ -34,6 +34,7 @@ app.controller("HorarioCtrl", function ($scope, $rootScope, $location, HorarioSe
                 horaAuxFin = parseInt(horario.horaFin.replace(":", ""));
 
                 if (horaIniNueva < horaAuxFin || horaFinNueva < horaAuxIni) {
+                //if ((horaIniNueva >= horaAuxIni && horaIniNueva < horaAuxFin) && (horaFinNueva > horaAuxIni && horaFinNueva <= horaAuxFin)) {
                     alert("No puede haber 2 materias en el mismo horario y aula ");
                     return false;
                 }

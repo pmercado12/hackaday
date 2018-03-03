@@ -1,6 +1,7 @@
-app.controller("DocenteCtrl", function ($scope, $rootScope, $location,DocenteService) {
+app.controller("DocenteCtrl", function ($scope, $rootScope, $location,DocenteService, HorarioService) {
     
     $scope.listaDocentes = [];
+    $scope.listaHorariosDocente = [];
     $scope.docente = {
         paterno: '',
         materno: '',
@@ -17,6 +18,12 @@ app.controller("DocenteCtrl", function ($scope, $rootScope, $location,DocenteSer
     $scope.listar = function (){
         DocenteService.listar(function (data, status, headers, config) {
             $scope.listaDocentes = data;
+        });
+    }
+
+    $scope.listarHorariosPorDocente = function (docente){
+        HorarioService.listarPorDocente(docente.idDocente, function (data, status, headers, config) {
+            $scope.listaHorariosDocente = data;
         });
     }
 

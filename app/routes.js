@@ -86,12 +86,29 @@ module.exports = function (app) {
 
 		//client.query('SELECT $1::text as message', ['Hello world!'], (err, resp) => {
 		client.query('select a."idAula",d."idDia", m."titulo",h."horaInicio",h."horaFin",a."aula", d."dia" from "Materia" m,"Horario" h, "Dia" d , "Aula" a WHERE m."idMateria" = h."idMateria" and d."idDia" = h."idDia" and a."idAula" = h."idAula"',
-		 (err, resp) => {
-			console.log(err ? err.stack : "ok!") // Hello World!
-			console.log(resp.rows);
-			res.json(resp.rows);
-		})
+			(err, resp) => {
+				console.log(err ? err.stack : "ok!") // Hello World!
+				console.log(resp.rows);
+				res.json(resp.rows);
+			})
 
+	});
+
+	app.get('/api/horario-semanal', function (req, res) {
+
+		var idDocente = req.query.idDocente;
+		const { Client } = require('pg')
+		const client = new Client(database.url)
+
+		client.connect()
+
+		//client.query('SELECT $1::text as message', ['Hello world!'], (err, resp) => {
+		client.query('select m.titulo,h."horaInicio",h."horaFin",a."aula", d."dia" from "Materia" m,"Horario" h, "Dia" d , "Aula" a WHERE m."idMateria" = h."idMateria" and d."idDia" = h."idDia" and a."idAula" = h."idAula" and m."idDocente" = ' + idDocente + '  ORDER  BY d."idDia"',
+			(err, resp) => {
+				console.log(err ? err.stack : "ok!") // Hello World!
+				console.log(resp.rows);
+				res.json(resp.rows);
+			})
 	});
 
 	// create todo and send back all todos after creation
