@@ -1,0 +1,22 @@
+<div class="col-lg-4">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Aula</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="aulaL in listaAula">
+                <td>{{aulaL.aula}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <form>
+        <div class="form-group">
+            <label for="inputNroAula">Aula</label>
+            <input type="text" class="form-control" id="inputPaterno" placeholder="NroAula" ng-model="aula.aula">
+        </div>
+
+        <button type="submit" class="btn btn-primary" ng-click="guardar()">Guardar</button>
+    </form>
+</div>
